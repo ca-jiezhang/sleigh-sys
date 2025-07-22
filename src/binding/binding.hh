@@ -13,33 +13,10 @@
 namespace ghidra {
 
 //////////////////////////////////////////////////////////////////////////////
-// proxy class
+// proxy classes
+//////////////////////////////////////////////////////////////////////////////
 
-#define PROXY_OBJECT()  inner_
-
-#define BEGIN_PTR_PROXY_CLASS(name) \
-  class R##name { \
-  private:                \
-    name *  PROXY_OBJECT(); \
-  public:                 \
-    R##name(name * value): inner_(value)
-
-#define BEGIN_CONST_PROXY_CLASS(name) \
-  class R##name { \
-  private:                \
-    name  PROXY_OBJECT(); \
-  public:                 \
-    R##name(const name & value) : inner_(value)
-
-#define BEGIN_PROXY_CLASS(name) \
-  class R##name { \
-  private:                \
-    name  PROXY_OBJECT(); \
-  public:                 \
-    R##name(name & value) : inner_(value)
-
-#define END_PROXY_CLASS() };
-
+//////////////////////////////////////////////////////////////////////////////
 // proxy class of AddrSpace -> RAddrSpace
 class RAddrSpace {
 private:
